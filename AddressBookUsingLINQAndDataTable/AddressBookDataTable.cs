@@ -37,5 +37,21 @@ namespace AddressBookUsingLINQAndDataTable
             //Return AddressBook DataTable
             return addressBookTable;
         }
+        
+        /// <summary>
+        /// Method to display contacts from Address Book DataTable
+        /// </summary>
+        /// <param name="table"></param>
+        public void DisplayContacts(DataTable table)
+        {
+            var contacts = table.Rows.Cast<DataRow>();
+            foreach (var contact in contacts)
+            {
+                Console.WriteLine("\n------------------------------------");
+                Console.Write("\nFirst Name : "+contact.Field<string>("FirstName") +" "+ "\nLast Name : " + contact.Field<string>("LastName") +" "+ "\nAddress : "+contact.Field<string>("Address") + " " + "\nCity : "+contact.Field<string>("City") + " " + "\nState : "+ contact.Field<string>("State") 
+                    + " " + "\nZip : "+contact.Field<int>("Zip") + " " + "\nPhone Number : "+contact.Field<long>("PhoneNumber") + " " + "\nEmail : " + contact.Field<string>("Email") + " ");
+                Console.WriteLine("\n------------------------------------");
+            }
+        }
     }
 }

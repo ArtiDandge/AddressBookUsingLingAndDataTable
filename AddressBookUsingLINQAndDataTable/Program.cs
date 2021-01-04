@@ -9,8 +9,7 @@ namespace AddressBookUsingLINQAndDataTable
             Console.WriteLine("Welcome to Address Book System using Linq and DataTable");
             AddressBookDataTable addressBookDataTable = new AddressBookDataTable();
             DataTable table = addressBookDataTable.CreateAddressBookDataTable();
-            addressBookDataTable.displya(table);
-
+            addressBookDataTable.DisplayContacts(table);
         }
     }
 }
