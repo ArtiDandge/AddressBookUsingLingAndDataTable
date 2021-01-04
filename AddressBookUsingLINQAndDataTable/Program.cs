@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Data;
 namespace AddressBookUsingLINQAndDataTable
 {
     class Program
@@ -7,6 +7,10 @@ namespace AddressBookUsingLINQAndDataTable
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Address Book System using Linq and DataTable");
+            AddressBookDataTable addressBookDataTable = new AddressBookDataTable();
+            DataTable table = addressBookDataTable.CreateAddressBookDataTable();
+            addressBookDataTable.displya(table);
+
         }
     }
 }
