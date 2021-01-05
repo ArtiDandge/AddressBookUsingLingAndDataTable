@@ -24,17 +24,19 @@ namespace AddressBookUsingLINQAndDataTable
             addressBookTable.Columns.Add("Zip", typeof(int));
             addressBookTable.Columns.Add("PhoneNumber", typeof(long));
             addressBookTable.Columns.Add("Email", typeof(string));
+            addressBookTable.Columns.Add("AddressBookType", typeof(string));
+            addressBookTable.Columns.Add("AddressBookName", typeof(string));
 
             //Add Values for Columns
-            addressBookTable.Rows.Add("Arti", "Dandge", "Ashish Plaza", "Pune", "MH", 763222, 9876543210, "asd@gmail.com");
-            addressBookTable.Rows.Add("Rohit", "Magar", "Venu Hights", "Pune", "MH", 763222, 933343210, "rohit@gmail.com");
-            addressBookTable.Rows.Add("Neha", "Sharma", "Flex Road", "Mumbai", "MH", 403222, 6776543210, "neha@gmail.com");
-            addressBookTable.Rows.Add("Preeti", "Neghi", "Neer Road", "Banglore", "Karnataka", 40002, 999000880, "preeti@gmail.com");
-            addressBookTable.Rows.Add("Prakash", "Swami", "Panji", "Panaji", "Goa", 43254, 7777743210, "asd@gmail.com");
-            addressBookTable.Rows.Add("Rama", "Magare", "Indor", "Indor", "MP", 43254, 7877743990, "Rama@gmail.com");
-            addressBookTable.Rows.Add("Rekha", "Swami", "baroda", "Baroda", "MP", 43254, 7888743210, "rekha@gmail.com");
-            addressBookTable.Rows.Add("Pratiksha", "Swami", "baroda", "Baroda", "MP", 43254, 7888743210, "rekha@gmail.com");
-            addressBookTable.Rows.Add("Diksha", "Swami", "baroda", "Baroda", "MP", 43254, 7888743210, "rekha@gmail.com");
+            addressBookTable.Rows.Add("Arti", "Dandge", "Ashish Plaza", "Pune", "MH", 763222, 9876543210, "asd@gmail.com", "Friends", "AddressBook1");
+            addressBookTable.Rows.Add("Rohit", "Magar", "Venu Hights", "Pune", "MH", 763222, 933343210, "rohit@gmail.com", "Friends", "AddressBook1");
+            addressBookTable.Rows.Add("Neha", "Sharma", "Flex Road", "Mumbai", "MH", 403222, 6776543210, "neha@gmail.com", "Family", "AddressBook2");
+            addressBookTable.Rows.Add("Preeti", "Neghi", "Neer Road", "Banglore", "Karnataka", 40002, 999000880, "preeti@gmail.com", "Friends", "AddressBook1");
+            addressBookTable.Rows.Add("Prakash", "Swami", "Panji", "Panaji", "Goa", 43254, 7777743210, "asd@gmail.com", "Friends", "AddressBook1");
+            addressBookTable.Rows.Add("Rama", "Magare", "Indor", "Indor", "MP", 43254, 7877743990, "Rama@gmail.com", "Family", "AddressBook2");
+            addressBookTable.Rows.Add("Rekha", "Swami", "baroda", "Baroda", "MP", 43254, 7888743210, "rekha@gmail.com", "Professional", "AddressBook3");
+            addressBookTable.Rows.Add("Pratiksha", "Swami", "baroda", "Baroda", "MP", 43254, 7888743210, "rekha@gmail.com", "Friends", "AddressBook1");
+            addressBookTable.Rows.Add("Diksha", "Swami", "baroda", "Baroda", "MP", 43254, 7888743210, "rekha@gmail.com", "Friends", "AddressBook1");
 
             //Return AddressBook DataTable
             return addressBookTable;
