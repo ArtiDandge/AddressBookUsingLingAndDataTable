@@ -37,6 +37,8 @@ namespace AddressBookUsingLINQAndDataTable
             addressBookTable.Rows.Add("Rekha", "Swami", "baroda", "Baroda", "MP", 43254, 7888743210, "rekha@gmail.com", "Professional", "AddressBook3");
             addressBookTable.Rows.Add("Pratiksha", "Swami", "baroda", "Baroda", "MP", 43254, 7888743210, "rekha@gmail.com", "Friends", "AddressBook1");
             addressBookTable.Rows.Add("Diksha", "Swami", "baroda", "Baroda", "MP", 43254, 7888743210, "rekha@gmail.com", "Friends", "AddressBook1");
+            addressBookTable.Rows.Add("Mamta", "Chaudhary", "Sia Plaza", "Mumbai", "MH", 444254, 6768743210, "mamta@gmail.com", "Friends", "AddressBook1");
+            addressBookTable.Rows.Add("Mamta", "Chaudhary", "Sia Plaza", "Mumbai", "MH", 444254, 6768743210, "mamta@gmail.com", "Family", "AddressBook2");
 
             //Return AddressBook DataTable
             return addressBookTable;
@@ -123,6 +125,19 @@ namespace AddressBookUsingLINQAndDataTable
         }
 
         /// <summary>
+        /// Method To Find Person who is in Both Family and Friends
+        /// </summary>
+        /// <param name="table"></param>
+        public void AddPersonInTwoTypes(DataTable table)
+        {
+            var contacts = table.Rows.Cast<DataRow>()
+                            .Where(x => x["FirstName"].Equals("Mamta"));
+            Console.WriteLine("\n**************************************************");
+            Console.WriteLine("\nAdded New Contact in Both Family And Friends");
+            DisplayContacts(contacts.CopyToDataTable());
+        }
+
+        /// <summary>
         /// Method to display contacts from Address Book DataTable
         /// </summary>
         /// <param name="table"></param>
@@ -133,7 +148,7 @@ namespace AddressBookUsingLINQAndDataTable
             {
                 Console.WriteLine("\n------------------------------------");
                 Console.Write("\nFirst Name : "+contact.Field<string>("FirstName") +" "+ "\nLast Name : " + contact.Field<string>("LastName") +" "+ "\nAddress : "+contact.Field<string>("Address") + " " + "\nCity : "+contact.Field<string>("City") + " " + "\nState : "+ contact.Field<string>("State") 
-                    + " " + "\nZip : "+contact.Field<int>("Zip") + " " + "\nPhone Number : "+contact.Field<long>("PhoneNumber") + " " + "\nEmail : " + contact.Field<string>("Email") + " ");
+                    + " " + "\nZip : "+contact.Field<int>("Zip") + " " + "\nPhone Number : "+contact.Field<long>("PhoneNumber") + " " + "\nEmail : " + contact.Field<string>("Email") + " "+"\nAddressBookType : "+contact.Field<string>("AddressBookType") +"\nAddressBookName : "+ contact.Field<string>("AddressBookName"));
                 Console.WriteLine("\n------------------------------------");
             }
             Console.WriteLine("\n**************************************************");
