@@ -71,6 +71,18 @@ namespace AddressBookUsingLINQAndDataTable
         }
 
         /// <summary>
+        /// Method to Retrieve Contact beloning to Perticular City or State
+        /// </summary>
+        /// <param name="table"></param>
+        public void RetrieveContactBelonginhToPerticularCityORState(DataTable table)
+        {
+            var contacts = table.Rows.Cast<DataRow>()
+                             .Where(x => x["City"].Equals("Pune") ||  x["State"].Equals("MH")).CopyToDataTable();
+            Console.WriteLine("Following Contacts belonginh to perticular City or State ");
+            DisplayContacts(contacts);
+        }
+
+        /// <summary>
         /// Method to display contacts from Address Book DataTable
         /// </summary>
         /// <param name="table"></param>
