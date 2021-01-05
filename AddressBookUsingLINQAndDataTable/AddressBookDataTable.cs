@@ -29,13 +29,32 @@ namespace AddressBookUsingLINQAndDataTable
             addressBookTable.Rows.Add("Arti", "Dandge", "Ashish Plaza", "Pune", "MH", 763222, 9876543210, "asd@gmail.com");
             addressBookTable.Rows.Add("Rohit", "Magar", "Venu Hights", "Pune", "MH", 763222, 933343210, "rohit@gmail.com");
             addressBookTable.Rows.Add("Neha", "Sharma", "Flex Road", "Mumbai", "MH", 403222, 6776543210, "neha@gmail.com");
-            addressBookTable.Rows.Add("Preeti", "Neghi", "Neer Road", "Benglore", "Karnataka", 40002, 999000880, "preeti@gmail.com");
+            addressBookTable.Rows.Add("Preeti", "Neghi", "Neer Road", "Banglore", "Karnataka", 40002, 999000880, "preeti@gmail.com");
             addressBookTable.Rows.Add("Prakash", "Swami", "Panji", "Panaji", "Goa", 43254, 7777743210, "asd@gmail.com");
             addressBookTable.Rows.Add("Rama", "Magare", "Indor", "Indor", "MP", 43254, 7877743990, "Rama@gmail.com");
             addressBookTable.Rows.Add("Rekha", "Swami", "baroda", "Baroda", "MP", 43254, 7888743210, "rekha@gmail.com");
 
             //Return AddressBook DataTable
             return addressBookTable;
+        }
+
+        /// <summary>
+        /// Method to Update Contact and Display Updated Contact 
+        /// </summary>
+        /// <param name="table"></param>
+        public void EditContact(DataTable table)
+        {
+            var contacts = table.AsEnumerable().Where(x => x.Field<string>("FirstName") == "Arti");
+            foreach(var contact in contacts)
+            {
+                contact.SetField("LastName", "Dudhe");
+                contact.SetField("City", "Banglore");
+                contact.SetField("State", "Karnataka");
+                contact.SetField("Email","artid12@yahoo.com");
+            }
+            Console.WriteLine("\n**************************************************");
+            Console.WriteLine("Following is recently Updated Contact");
+            DisplayContacts(contacts.CopyToDataTable());
         }
         
         /// <summary>
@@ -53,5 +72,6 @@ namespace AddressBookUsingLINQAndDataTable
                 Console.WriteLine("\n------------------------------------");
             }
         }
+
     }
 }
