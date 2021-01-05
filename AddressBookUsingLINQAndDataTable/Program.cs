@@ -15,6 +15,7 @@ namespace AddressBookUsingLINQAndDataTable
             addressBookDataTable.RetrieveContactBelonginhToPerticularCityORState(table);
             addressBookDataTable.CountContactsFromPerticularCityANDState(table);
             addressBookDataTable.SortContacts(table);
+            addressBookDataTable.CountContactsByAddressBookType(table);
         }
     }
 }

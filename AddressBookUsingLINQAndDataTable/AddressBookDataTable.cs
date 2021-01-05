@@ -109,6 +109,20 @@ namespace AddressBookUsingLINQAndDataTable
         }
 
         /// <summary>
+        /// Method to Retrieve Count of Contacts beloning to Perticular AddressBook Type
+        /// </summary>
+        /// <param name="table"></param>
+        public void CountContactsByAddressBookType(DataTable table)
+        {
+            var friendsContacts = table.Rows.Cast<DataRow>()
+                             .Where(x => x["AddressBookType"].Equals("Friends")).Count();
+            Console.WriteLine("Number of Persons belongs to type 'Friends' : {0} ", friendsContacts);
+            var familyContact = table.Rows.Cast<DataRow>()
+                             .Where(x => x["AddressBookType"].Equals("Family")).Count();
+            Console.WriteLine("Number of Persons belongs to type 'Family' : {0} ", familyContact);
+        }
+
+        /// <summary>
         /// Method to display contacts from Address Book DataTable
         /// </summary>
         /// <param name="table"></param>
