@@ -94,6 +94,19 @@ namespace AddressBookUsingLINQAndDataTable
         }
 
         /// <summary>
+        /// Method to Sort Contact using peron's first name
+        /// </summary>
+        /// <param name="table"></param>
+        public void SortContacts(DataTable table)
+        {
+            var contacts = table.Rows.Cast<DataRow>()
+                           .OrderBy(x => x.Field<string>("FirstName"));
+            Console.WriteLine("\n**************************************************");
+            Console.WriteLine("\nSorted Contacts using Person's first name");
+            DisplayContacts(contacts.CopyToDataTable());
+        }
+
+        /// <summary>
         /// Method to display contacts from Address Book DataTable
         /// </summary>
         /// <param name="table"></param>
