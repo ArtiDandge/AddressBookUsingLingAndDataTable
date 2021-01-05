@@ -13,6 +13,7 @@ namespace AddressBookUsingLINQAndDataTable
             addressBookDataTable.EditContact(table);
             addressBookDataTable.DeleteContact(table);
             addressBookDataTable.RetrieveContactBelonginhToPerticularCityORState(table);
+            addressBookDataTable.CountContactsFromPerticularCityANDState(table);
         }
     }
 }
