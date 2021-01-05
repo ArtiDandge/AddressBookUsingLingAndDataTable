@@ -33,6 +33,8 @@ namespace AddressBookUsingLINQAndDataTable
             addressBookTable.Rows.Add("Prakash", "Swami", "Panji", "Panaji", "Goa", 43254, 7777743210, "asd@gmail.com");
             addressBookTable.Rows.Add("Rama", "Magare", "Indor", "Indor", "MP", 43254, 7877743990, "Rama@gmail.com");
             addressBookTable.Rows.Add("Rekha", "Swami", "baroda", "Baroda", "MP", 43254, 7888743210, "rekha@gmail.com");
+            addressBookTable.Rows.Add("Pratiksha", "Swami", "baroda", "Baroda", "MP", 43254, 7888743210, "rekha@gmail.com");
+            addressBookTable.Rows.Add("Diksha", "Swami", "baroda", "Baroda", "MP", 43254, 7888743210, "rekha@gmail.com");
 
             //Return AddressBook DataTable
             return addressBookTable;
@@ -58,6 +60,17 @@ namespace AddressBookUsingLINQAndDataTable
         }
         
         /// <summary>
+        /// Method To Remove Contact from datatable and display remaining Contacts
+        /// </summary>
+        /// <param name="table"></param>
+        public void DeleteContact(DataTable table)
+        {
+            var contacts = table.AsEnumerable().Where(r => r.Field<string>("FirstName") != "Pratiksha").CopyToDataTable();
+            Console.WriteLine("Following Contacts are present in Datatable after deletion of Contact of Person 'Pratiksha' ");
+            DisplayContacts(contacts);
+        }
+
+        /// <summary>
         /// Method to display contacts from Address Book DataTable
         /// </summary>
         /// <param name="table"></param>
@@ -71,7 +84,7 @@ namespace AddressBookUsingLINQAndDataTable
                     + " " + "\nZip : "+contact.Field<int>("Zip") + " " + "\nPhone Number : "+contact.Field<long>("PhoneNumber") + " " + "\nEmail : " + contact.Field<string>("Email") + " ");
                 Console.WriteLine("\n------------------------------------");
             }
+            Console.WriteLine("\n**************************************************");
         }
-
     }
 }
